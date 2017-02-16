@@ -11,6 +11,7 @@ use Zend\Stdlib\Parameters;
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\SendResponseListener;
 use Zend\Mvc\ResponseSender\SendResponseEvent;
+use React\EventLoop\LoopInterface;
 
 class Zf2 implements BridgeInterface
 {
@@ -23,7 +24,7 @@ class Zf2 implements BridgeInterface
      * @param string $appBootstrap
      * @param string $appenv
      */
-    public function bootstrap($appBootstrap, $appenv)
+    public function bootstrap($appBootstrap, $appenv, $debug, LoopInterface $loop)
     {
         /* @var $bootstrap \PHPPM\Bootstraps\Zf2 */
         $bootstrap = new \PHPPM\Bootstraps\Zf2($appenv);
